@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/ctest.dir/src/student.c.o CMakeFiles/ctest.dir/src/main.c.o  -o bin/ctest  -L/home/jyx/CLionProjects/cmake/3rdParty/bin -lplay bin/libwork.so bin/libmyMath.a -Wl,-rpath,/home/jyx/CLionProjects/cmake/3rdParty/bin:/home/jyx/CLionProjects/cmake/build/bin: 

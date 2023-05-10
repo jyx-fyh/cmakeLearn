@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC   -shared -Wl,-soname,libwork.so -o ../bin/libwork.so CMakeFiles/work.dir/work/src/work.c.o 

@@ -1,1 +1,0 @@
-/usr/bin/cc     CMakeFiles/cmake.exe.dir/src/student.c.o CMakeFiles/cmake.exe.dir/src/main.c.o  -o cmake.exe  -L/home/jyx/CLionProjects/libevent/cmake/3rdParty/bin libs/bin/libmyMath.a -lplay -Wl,-rpath,/home/jyx/CLionProjects/libevent/cmake/3rdParty/bin 

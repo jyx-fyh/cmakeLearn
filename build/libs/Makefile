@@ -48,24 +48,35 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jyx/CLionProjects/libevent/cmake
+CMAKE_SOURCE_DIR = /home/jyx/CLionProjects/cmake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jyx/CLionProjects/libevent/cmake/build
+CMAKE_BINARY_DIR = /home/jyx/CLionProjects/cmake/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
-.PHONY : edit_cache/fast
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,16 +89,49 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/jyx/CLionProjects/libevent/cmake/build/CMakeFiles /home/jyx/CLionProjects/libevent/cmake/build/libs/CMakeFiles/progress.marks
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jyx/CLionProjects/libevent/cmake/build/CMakeFiles 0
+	cd /home/jyx/CLionProjects/cmake/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/jyx/CLionProjects/cmake/build/CMakeFiles /home/jyx/CLionProjects/cmake/build/libs/CMakeFiles/progress.marks
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jyx/CLionProjects/cmake/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/clean
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +141,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/preinstall
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/preinstall
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/jyx/CLionProjects/cmake/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libs/CMakeFiles/myMath.dir/rule:
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/CMakeFiles/myMath.dir/rule
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/CMakeFiles/myMath.dir/rule
 .PHONY : libs/CMakeFiles/myMath.dir/rule
 
 # Convenience name for target.
@@ -122,8 +166,23 @@ myMath: libs/CMakeFiles/myMath.dir/rule
 
 # fast build rule for target.
 myMath/fast:
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(MAKE) -f libs/CMakeFiles/myMath.dir/build.make libs/CMakeFiles/myMath.dir/build
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f libs/CMakeFiles/myMath.dir/build.make libs/CMakeFiles/myMath.dir/build
 .PHONY : myMath/fast
+
+# Convenience name for target.
+libs/CMakeFiles/work.dir/rule:
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f CMakeFiles/Makefile2 libs/CMakeFiles/work.dir/rule
+.PHONY : libs/CMakeFiles/work.dir/rule
+
+# Convenience name for target.
+work: libs/CMakeFiles/work.dir/rule
+
+.PHONY : work
+
+# fast build rule for target.
+work/fast:
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f libs/CMakeFiles/work.dir/build.make libs/CMakeFiles/work.dir/build
+.PHONY : work/fast
 
 myMath/src/myMath.o: myMath/src/myMath.c.o
 
@@ -131,7 +190,7 @@ myMath/src/myMath.o: myMath/src/myMath.c.o
 
 # target to build an object file
 myMath/src/myMath.c.o:
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(MAKE) -f libs/CMakeFiles/myMath.dir/build.make libs/CMakeFiles/myMath.dir/myMath/src/myMath.c.o
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f libs/CMakeFiles/myMath.dir/build.make libs/CMakeFiles/myMath.dir/myMath/src/myMath.c.o
 .PHONY : myMath/src/myMath.c.o
 
 myMath/src/myMath.i: myMath/src/myMath.c.i
@@ -140,7 +199,7 @@ myMath/src/myMath.i: myMath/src/myMath.c.i
 
 # target to preprocess a source file
 myMath/src/myMath.c.i:
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(MAKE) -f libs/CMakeFiles/myMath.dir/build.make libs/CMakeFiles/myMath.dir/myMath/src/myMath.c.i
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f libs/CMakeFiles/myMath.dir/build.make libs/CMakeFiles/myMath.dir/myMath/src/myMath.c.i
 .PHONY : myMath/src/myMath.c.i
 
 myMath/src/myMath.s: myMath/src/myMath.c.s
@@ -149,8 +208,35 @@ myMath/src/myMath.s: myMath/src/myMath.c.s
 
 # target to generate assembly for a file
 myMath/src/myMath.c.s:
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(MAKE) -f libs/CMakeFiles/myMath.dir/build.make libs/CMakeFiles/myMath.dir/myMath/src/myMath.c.s
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f libs/CMakeFiles/myMath.dir/build.make libs/CMakeFiles/myMath.dir/myMath/src/myMath.c.s
 .PHONY : myMath/src/myMath.c.s
+
+work/src/work.o: work/src/work.c.o
+
+.PHONY : work/src/work.o
+
+# target to build an object file
+work/src/work.c.o:
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f libs/CMakeFiles/work.dir/build.make libs/CMakeFiles/work.dir/work/src/work.c.o
+.PHONY : work/src/work.c.o
+
+work/src/work.i: work/src/work.c.i
+
+.PHONY : work/src/work.i
+
+# target to preprocess a source file
+work/src/work.c.i:
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f libs/CMakeFiles/work.dir/build.make libs/CMakeFiles/work.dir/work/src/work.c.i
+.PHONY : work/src/work.c.i
+
+work/src/work.s: work/src/work.c.s
+
+.PHONY : work/src/work.s
+
+# target to generate assembly for a file
+work/src/work.c.s:
+	cd /home/jyx/CLionProjects/cmake/build && $(MAKE) -f libs/CMakeFiles/work.dir/build.make libs/CMakeFiles/work.dir/work/src/work.c.s
+.PHONY : work/src/work.c.s
 
 # Help Target
 help:
@@ -158,12 +244,20 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
 	@echo "... myMath"
+	@echo "... work"
+	@echo "... install/strip"
+	@echo "... install/local"
 	@echo "... myMath/src/myMath.o"
 	@echo "... myMath/src/myMath.i"
 	@echo "... myMath/src/myMath.s"
+	@echo "... work/src/work.o"
+	@echo "... work/src/work.i"
+	@echo "... work/src/work.s"
 .PHONY : help
 
 
@@ -175,6 +269,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/jyx/CLionProjects/libevent/cmake/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/jyx/CLionProjects/cmake/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

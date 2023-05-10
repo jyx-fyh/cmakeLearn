@@ -48,24 +48,35 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jyx/CLionProjects/libevent/cmake
+CMAKE_SOURCE_DIR = /home/jyx/CLionProjects/cmake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jyx/CLionProjects/libevent/cmake/build
+CMAKE_BINARY_DIR = /home/jyx/CLionProjects/cmake/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
-.PHONY : edit_cache/fast
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,11 +89,44 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jyx/CLionProjects/libevent/cmake/build/CMakeFiles /home/jyx/CLionProjects/libevent/cmake/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jyx/CLionProjects/cmake/build/CMakeFiles /home/jyx/CLionProjects/cmake/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jyx/CLionProjects/libevent/cmake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jyx/CLionProjects/cmake/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +155,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cmake.exe
+# Target rules for targets named ctest
 
 # Build rule for target.
-cmake.exe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cmake.exe
-.PHONY : cmake.exe
+ctest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ctest
+.PHONY : ctest
 
 # fast build rule for target.
-cmake.exe/fast:
-	$(MAKE) -f CMakeFiles/cmake.exe.dir/build.make CMakeFiles/cmake.exe.dir/build
-.PHONY : cmake.exe/fast
+ctest/fast:
+	$(MAKE) -f CMakeFiles/ctest.dir/build.make CMakeFiles/ctest.dir/build
+.PHONY : ctest/fast
 
 #=============================================================================
 # Target rules for targets named myMath
@@ -136,13 +180,26 @@ myMath/fast:
 	$(MAKE) -f libs/CMakeFiles/myMath.dir/build.make libs/CMakeFiles/myMath.dir/build
 .PHONY : myMath/fast
 
+#=============================================================================
+# Target rules for targets named work
+
+# Build rule for target.
+work: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 work
+.PHONY : work
+
+# fast build rule for target.
+work/fast:
+	$(MAKE) -f libs/CMakeFiles/work.dir/build.make libs/CMakeFiles/work.dir/build
+.PHONY : work/fast
+
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) -f CMakeFiles/cmake.exe.dir/build.make CMakeFiles/cmake.exe.dir/src/main.c.o
+	$(MAKE) -f CMakeFiles/ctest.dir/build.make CMakeFiles/ctest.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -151,7 +208,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) -f CMakeFiles/cmake.exe.dir/build.make CMakeFiles/cmake.exe.dir/src/main.c.i
+	$(MAKE) -f CMakeFiles/ctest.dir/build.make CMakeFiles/ctest.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -160,7 +217,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) -f CMakeFiles/cmake.exe.dir/build.make CMakeFiles/cmake.exe.dir/src/main.c.s
+	$(MAKE) -f CMakeFiles/ctest.dir/build.make CMakeFiles/ctest.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 src/student.o: src/student.c.o
@@ -169,7 +226,7 @@ src/student.o: src/student.c.o
 
 # target to build an object file
 src/student.c.o:
-	$(MAKE) -f CMakeFiles/cmake.exe.dir/build.make CMakeFiles/cmake.exe.dir/src/student.c.o
+	$(MAKE) -f CMakeFiles/ctest.dir/build.make CMakeFiles/ctest.dir/src/student.c.o
 .PHONY : src/student.c.o
 
 src/student.i: src/student.c.i
@@ -178,7 +235,7 @@ src/student.i: src/student.c.i
 
 # target to preprocess a source file
 src/student.c.i:
-	$(MAKE) -f CMakeFiles/cmake.exe.dir/build.make CMakeFiles/cmake.exe.dir/src/student.c.i
+	$(MAKE) -f CMakeFiles/ctest.dir/build.make CMakeFiles/ctest.dir/src/student.c.i
 .PHONY : src/student.c.i
 
 src/student.s: src/student.c.s
@@ -187,7 +244,7 @@ src/student.s: src/student.c.s
 
 # target to generate assembly for a file
 src/student.c.s:
-	$(MAKE) -f CMakeFiles/cmake.exe.dir/build.make CMakeFiles/cmake.exe.dir/src/student.c.s
+	$(MAKE) -f CMakeFiles/ctest.dir/build.make CMakeFiles/ctest.dir/src/student.c.s
 .PHONY : src/student.c.s
 
 # Help Target
@@ -196,10 +253,15 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... cmake.exe"
+	@echo "... ctest"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... edit_cache"
 	@echo "... myMath"
+	@echo "... work"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

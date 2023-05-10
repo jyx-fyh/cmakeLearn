@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/myMath.dir/myMath/src/myMath.c.o"
-  "bin/libmyMath.pdb"
-  "bin/libmyMath.a"
+  "../bin/libmyMath.pdb"
+  "../bin/libmyMath.a"
 )
 
 # Per-language clean rules from dependency scanning.

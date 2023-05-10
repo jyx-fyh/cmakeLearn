@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "bin/libmyMath.a"
+  "../bin/libmyMath.a"
 )

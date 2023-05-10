@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/jyx/CLionProjects/libevent/cmake/libs/myMath/src/myMath.c" "/home/jyx/CLionProjects/libevent/cmake/build/libs/CMakeFiles/myMath.dir/myMath/src/myMath.c.o"
+  "/home/jyx/CLionProjects/cmake/libs/myMath/src/myMath.c" "/home/jyx/CLionProjects/cmake/build/libs/CMakeFiles/myMath.dir/myMath/src/myMath.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
