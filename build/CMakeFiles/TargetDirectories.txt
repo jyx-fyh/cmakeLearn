@@ -1,0 +1,6 @@
+/home/jyx/CLionProjects/libevent/cmake/build/CMakeFiles/edit_cache.dir
+/home/jyx/CLionProjects/libevent/cmake/build/CMakeFiles/rebuild_cache.dir
+/home/jyx/CLionProjects/libevent/cmake/build/CMakeFiles/cmake.exe.dir
+/home/jyx/CLionProjects/libevent/cmake/build/libs/CMakeFiles/edit_cache.dir
+/home/jyx/CLionProjects/libevent/cmake/build/libs/CMakeFiles/rebuild_cache.dir
+/home/jyx/CLionProjects/libevent/cmake/build/libs/CMakeFiles/myMath.dir

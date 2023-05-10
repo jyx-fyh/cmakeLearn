@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../3rdParty/include/play.h
+
+../include/student.h
+
+../libs/myMath/include/myMath.h
+
+/home/jyx/CLionProjects/libevent/cmake/src/main.c
+stdio.h
+-
+student.h
+/home/jyx/CLionProjects/libevent/cmake/src/student.h
+myMath.h
+/home/jyx/CLionProjects/libevent/cmake/src/myMath.h
+play.h
+/home/jyx/CLionProjects/libevent/cmake/src/play.h
+
+/home/jyx/CLionProjects/libevent/cmake/src/student.c
+student.h
+/home/jyx/CLionProjects/libevent/cmake/src/student.h
+
