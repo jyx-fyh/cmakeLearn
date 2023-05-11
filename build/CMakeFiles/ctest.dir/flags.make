@@ -6,5 +6,5 @@ C_FLAGS =
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/jyx/CLionProjects/cmake/libs/myMath/include -I/home/jyx/CLionProjects/cmake/include -I/home/jyx/CLionProjects/cmake/build -I/home/jyx/CLionProjects/cmake/libs/work/include -I/home/jyx/CLionProjects/cmake/3rdParty/include 
+C_INCLUDES = -I/home/jyx/CLionProjects/cmake/libs/myMath/include -I/home/jyx/CLionProjects/cmake/include -I/home/jyx/CLionProjects/cmake/build -I/home/jyx/CLionProjects/cmake/libs/work/include -I/home/jyx/CLionProjects/cmake/3rdParty/libplay/include 
 

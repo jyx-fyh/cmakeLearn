@@ -52,14 +52,14 @@ build cmake_object_order_depends_target_ctest: phony || cmake_object_order_depen
 build CMakeFiles/ctest.dir/src/main.c.o: C_COMPILER__ctest_Debug /home/jyx/CLionProjects/cmake/src/main.c || cmake_object_order_depends_target_ctest
   DEP_FILE = CMakeFiles/ctest.dir/src/main.c.o.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I/home/jyx/CLionProjects/cmake/libs/myMath/include -I/home/jyx/CLionProjects/cmake/include -I/home/jyx/CLionProjects/cmake/cmake-build-debug -I/home/jyx/CLionProjects/cmake/libs/work/include -I/home/jyx/CLionProjects/cmake/3rdParty/include
+  INCLUDES = -I/home/jyx/CLionProjects/cmake/libs/myMath/include -I/home/jyx/CLionProjects/cmake/include -I/home/jyx/CLionProjects/cmake/cmake-build-debug -I/home/jyx/CLionProjects/cmake/libs/work/include -I/home/jyx/CLionProjects/cmake/3rdParty/libplay/include
   OBJECT_DIR = CMakeFiles/ctest.dir
   OBJECT_FILE_DIR = CMakeFiles/ctest.dir/src
 
 build CMakeFiles/ctest.dir/src/student.c.o: C_COMPILER__ctest_Debug /home/jyx/CLionProjects/cmake/src/student.c || cmake_object_order_depends_target_ctest
   DEP_FILE = CMakeFiles/ctest.dir/src/student.c.o.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I/home/jyx/CLionProjects/cmake/libs/myMath/include -I/home/jyx/CLionProjects/cmake/include -I/home/jyx/CLionProjects/cmake/cmake-build-debug -I/home/jyx/CLionProjects/cmake/libs/work/include -I/home/jyx/CLionProjects/cmake/3rdParty/include
+  INCLUDES = -I/home/jyx/CLionProjects/cmake/libs/myMath/include -I/home/jyx/CLionProjects/cmake/include -I/home/jyx/CLionProjects/cmake/cmake-build-debug -I/home/jyx/CLionProjects/cmake/libs/work/include -I/home/jyx/CLionProjects/cmake/3rdParty/libplay/include
   OBJECT_DIR = CMakeFiles/ctest.dir
   OBJECT_FILE_DIR = CMakeFiles/ctest.dir/src
 
@@ -73,8 +73,8 @@ build CMakeFiles/ctest.dir/src/student.c.o: C_COMPILER__ctest_Debug /home/jyx/CL
 
 build bin/ctest: C_EXECUTABLE_LINKER__ctest_Debug CMakeFiles/ctest.dir/src/main.c.o CMakeFiles/ctest.dir/src/student.c.o | bin/libwork.so bin/libmyMath.a || bin/libmyMath.a bin/libwork.so
   FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/home/jyx/CLionProjects/cmake/3rdParty/bin:/home/jyx/CLionProjects/cmake/cmake-build-debug/bin:  -lplay  bin/libwork.so  bin/libmyMath.a
-  LINK_PATH = -L/home/jyx/CLionProjects/cmake/3rdParty/bin
+  LINK_LIBRARIES = -Wl,-rpath,/home/jyx/CLionProjects/cmake/3rdParty/libplay/bin:/home/jyx/CLionProjects/cmake/cmake-build-debug/bin:  -lplay  bin/libwork.so  bin/libmyMath.a
+  LINK_PATH = -L/home/jyx/CLionProjects/cmake/3rdParty/libplay/bin
   OBJECT_DIR = CMakeFiles/ctest.dir
   POST_BUILD = :
   PRE_LINK = :

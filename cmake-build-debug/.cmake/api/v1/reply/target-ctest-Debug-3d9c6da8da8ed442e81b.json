@@ -28,37 +28,37 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 28,
+				"line" : 35,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 31,
+				"line" : 38,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 27,
+				"line" : 34,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 30,
+				"line" : 37,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 15,
+				"line" : 20,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 22,
+				"line" : 29,
 				"parent" : 0
 			}
 		]
@@ -92,7 +92,7 @@
 				},
 				{
 					"backtrace" : 6,
-					"path" : "/home/jyx/CLionProjects/cmake/3rdParty/include"
+					"path" : "/home/jyx/CLionProjects/cmake/3rdParty/libplay/include"
 				}
 			],
 			"language" : "C",
@@ -143,11 +143,11 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "-L/home/jyx/CLionProjects/cmake/3rdParty/bin",
+				"fragment" : "-L/home/jyx/CLionProjects/cmake/3rdParty/libplay/bin",
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/jyx/CLionProjects/cmake/3rdParty/bin:/home/jyx/CLionProjects/cmake/cmake-build-debug/bin:",
+				"fragment" : "-Wl,-rpath,/home/jyx/CLionProjects/cmake/3rdParty/libplay/bin:/home/jyx/CLionProjects/cmake/cmake-build-debug/bin:",
 				"role" : "libraries"
 			},
 			{

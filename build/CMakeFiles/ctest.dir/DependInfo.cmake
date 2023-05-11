@@ -15,7 +15,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   "."
   "../libs/work/include"
-  "../3rdParty/include"
+  "../3rdParty/libplay/include"
   )
 
 # Targets to which this target links.

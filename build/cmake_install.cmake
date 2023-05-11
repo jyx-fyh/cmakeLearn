@@ -44,7 +44,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ctest")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ctest"
-         OLD_RPATH "/home/jyx/CLionProjects/cmake/3rdParty/bin:/home/jyx/CLionProjects/cmake/build/bin:"
+         OLD_RPATH "/home/jyx/CLionProjects/cmake/3rdParty/libplay/bin:/home/jyx/CLionProjects/cmake/build/bin:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ctest")

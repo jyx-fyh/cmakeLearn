@@ -6,9 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../3rdParty/include/3rdMath.h
-
-../3rdParty/include/play.h
+../3rdParty/libplay/include/play.h
 
 ../include/student.h
 
@@ -30,7 +28,7 @@ config.h
 myMath.h
 /home/jyx/CLionProjects/cmake/src/myMath.h
 3rdMath.h
--
+/home/jyx/CLionProjects/cmake/src/3rdMath.h
 
 /home/jyx/CLionProjects/cmake/src/student.c
 student.h

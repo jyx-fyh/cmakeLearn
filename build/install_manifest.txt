@@ -1,2 +1,0 @@
-/usr/local/bin/ctest
-/usr/local/lib/libwork.so
