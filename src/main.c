@@ -9,11 +9,14 @@
 #else
 #include "3rdMath.h"
 #endif
+#define _STR(x) #x
+#define STR(x) _STR(x)
 
 int main() {
     student stu1 = {.name="Jack", .age=18};
     student stu2 = {.name="Mike", .age=20};
-    printf("VERSION %d.%d\n",cmake_VERSION_MAJOR, cmake_VERSION_MINOR);
+    printf("PROJECT %s\n", STR(PROJECT_NAME));
+    printf("VERSION %d.%d\n",PROJECT_VERSION_MAJOR, PROJECT_VERSION_MINOR);
 #ifdef USE_MYMATH
     printf("use myMath.h\n");
 #else
