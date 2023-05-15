@@ -1,4 +1,0 @@
-#define USE_MYMATH
-#define PROJECT_VERSION_MAJOR 3
-#define PROJECT_VERSION_MINOR 0
-#define PROJECT_NAME cmake
